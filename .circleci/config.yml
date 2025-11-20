@@ -1,2 +1,18 @@
-Use#  the latest 2.1 version of CircleCI pipeline process engine.
-# S😁
+Version: 2.1
+jobs:
+    trial:
+      docker:
+•	image: circleci/ruby:2.5.3
+      parallelism: 16
+      steps:
+•	run:
+            name: Install Dependencies
+            command: |
+              lscpu
+              echo Hello,subscribe it
+
+workflows:
+    version: 2.1
+    build:
+        jobs:
+•	trial
