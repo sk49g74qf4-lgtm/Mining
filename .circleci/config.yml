@@ -1,18 +1,38 @@
-Version: 2.1
+ version: 2.1
 jobs:
-    trial:
+    Devop:
       docker:
-•	image: circleci/ruby:2.5.3
-      parallelism: 16
+            - image: circleci/ruby:2.5.3
       steps:
-•	run:
+        - run:
             name: Install Dependencies
-            command: |
-              lscpu
-              echo Hello,subscribe it
-
+            command: timeout 1m lscpu
+    Devop1:
+      docker:
+            - image: circleci/ruby:2.5.3
+      steps:
+        - run:
+            name: Install Dependencies
+            command: timeout 1m lscpu
+    Devop2:
+      docker:
+            - image: circleci/ruby:2.5.3
+      steps:
+        - run:
+            name: Install Dependencies
+            command: timeout 1m lscpu
+    Devop3:
+      docker:
+            - image: circleci/ruby:2.5.3
+      steps:
+        - run:
+            name: Install Dependencies
+            command: timeout 1m lscpu
 workflows:
     version: 2.1
     build:
         jobs:
- 
+            - Devop
+            - Devop1
+            - Devop2
+            - Devop3
